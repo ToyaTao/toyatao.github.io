@@ -2,19 +2,98 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>中药辨别</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知识汇总手册</title>
     <style>
-        body{font-family:Microsoft Yahei;max-width:800px;margin:50px auto;padding:0 20px;}
-        h2{color:#333;}
-        .item{background:#f7f7f7;padding:16px;border-radius:8px;margin:12px 0;}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", sans-serif;
+        }
+        body {
+            max-width: 1140px;
+            margin: 50px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 35px;
+        }
+        /* 左侧按钮区域 */
+        .left-menu {
+            background: #f3f3f3;
+            padding:25px;
+            border-radius:10px;
+        }
+        .left-menu button{
+            width:100%;
+            padding:14px;
+            margin:8px 0;
+            border:none;
+            background:#2468c7;
+            color:#fff;
+            border-radius:6px;
+            font-size:16px;
+            cursor:pointer;
+        }
+        .left-menu button:hover{
+            background:#194b94;
+        }
+        /* 右侧内容区域 */
+        .right-content{
+            background:#f8f8f8;
+            padding:30px;
+            border-radius:10px;
+            font-size:17px;
+            line-height:1.8;
+        }
+        .content-item{
+            display:none;
+        }
+        .content-item.active{
+            display:block;
+        }
     </style>
 </head>
 <body>
-    <h2>中药判断真假：</h2>
-    <div class="item">
-        <strong>白芷：</strong>
-        <p>正品：切面外圈有很多棕色的油点。</p>
-        <p>假货：颜色惨白，一摸掉粉。</p>
+    <!-- 左侧按钮栏 -->
+    <div class="left-menu">
+        <button onclick="switchTab('acupuncture')">针灸穴位</button>
+        <button onclick="switchTab('herb')">中药判断真假</button>
+        <button onclick="switchTab('trade')">外贸知识</button>
+        <button onclick="switchTab('other')">其他知识</button>
     </div>
+
+    <!-- 右侧内容区域 -->
+    <div class="right-content">
+        <div class="content-item active" id="acupuncture">
+            曲池，手三里。
+        </div>
+        <div class="content-item" id="herb">
+            <strong>白芷：</strong><br>
+            正品：切面外圈有很多棕色的油点。<br>
+            假：颜色惨白，一摸掉粉。<br><br>
+            <strong>当归：</strong><br>
+            正品：切面油性足。<br>
+            假：呈长条状。
+        </div>
+        <div class="content-item" id="trade">
+            FOB、EXW。
+        </div>
+        <div class="content-item" id="other">
+            塑料PP5。
+        </div>
+    </div>
+
+<script>
+function switchTab(id){
+    // 隐藏所有板块
+    document.querySelectorAll('.content-item').forEach(box=>{
+        box.classList.remove('active');
+    })
+    // 显示选中板块
+    document.getElementById(id).classList.add('active');
+}
+</script>
 </body>
 </html>
