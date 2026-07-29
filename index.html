@@ -24,11 +24,29 @@
             grid-template-columns: 260px 1fr;
             gap: 35px;
         }
-        /* 左侧按钮区域 */
+        /* 左侧菜单 */
         .left-menu {
             background: #f3f3f3;
             padding:25px;
             border-radius:10px;
+        }
+        /* Toya艺术字样式 */
+        .logo-box{
+            background:#2468c7;
+            color:#fff;
+            text-align:center;
+            padding:20px;
+            border-radius:8px;
+            font-size:24px;
+            font-weight:bold;
+            font-style:italic;
+            letter-spacing:3px;
+            text-shadow: 1px 1px 3px #0f3460;
+        }
+        .left-menu hr{
+            border:none;
+            border-top:1px solid #dddddd;
+            margin:15px 0;
         }
         .left-menu button{
             width:100%;
@@ -63,6 +81,10 @@
 <body>
     <!-- 左侧按钮栏 -->
     <div class="left-menu">
+        <div class="logo-box">
+            Toya
+        </div>
+        <hr>
         <button onclick="switchTab('acupuncture')">针灸穴位</button>
         <button onclick="switchTab('herb')">中药判断真假</button>
         <button onclick="switchTab('survival')">求生知识</button>
@@ -96,11 +118,9 @@
 
 <script>
 function switchTab(id){
-    // 隐藏所有板块
     document.querySelectorAll('.content-item').forEach(box=>{
         box.classList.remove('active');
     })
-    // 显示选中板块
     document.getElementById(id).classList.add('active');
 }
 </script>
