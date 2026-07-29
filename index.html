@@ -24,31 +24,30 @@
             grid-template-columns: 260px 1fr;
             gap: 35px;
         }
-        /* 左侧菜单 */
-        .left-menu {
-            background: #f3f3f3;
-            padding:25px;
-            border-radius:10px;
+        /* 左侧整体容器 */
+        .left-wrap{
+            display:flex;
+            flex-direction:column;
+            gap:20px;
         }
-        /* Toya艺术字样式 */
-        .logo-box{
-            background:#2468c7;
-            color:#fff;
+        /* Toya艺术字：无背景、独立区域，不与按钮同框 */
+        .logo-text{
             text-align:center;
-            padding:20px;
-            border-radius:8px;
-            font-size:24px;
+            font-size:26px;
             font-weight:bold;
             font-style:italic;
-            letter-spacing:3px;
-            text-shadow: 1px 1px 3px #0f3460;
+            letter-spacing:4px;
+            color:#222222;
+            text-shadow: 0.5px 0.5px 2px #cccccc;
         }
-        .left-menu hr{
-            border:none;
-            border-top:1px solid #dddddd;
-            margin:15px 0;
+        /* 按钮单独阴影框 */
+        .btn-box{
+            background: #f3f3f3;
+            padding:22px;
+            border-radius:10px;
+            box-shadow: 2px 2px 8px #d0d0d0;
         }
-        .left-menu button{
+        .btn-box button{
             width:100%;
             padding:14px;
             margin:8px 0;
@@ -59,7 +58,7 @@
             font-size:var(--c);
             cursor:pointer;
         }
-        .left-menu button:hover{
+        .btn-box button:hover{
             background:#194b94;
         }
         /* 右侧内容区域 */
@@ -69,6 +68,7 @@
             border-radius:10px;
             font-size:var(--a);
             line-height:1.8;
+            box-shadow: 2px 2px 8px #e2e2e2;
         }
         .content-item{
             display:none;
@@ -79,17 +79,20 @@
     </style>
 </head>
 <body>
-    <!-- 左侧按钮栏 -->
-    <div class="left-menu">
-        <div class="logo-box">
+    <!-- 左侧 -->
+    <div class="left-wrap">
+        <!-- Toya艺术字 独立，无背景，独立区块 -->
+        <div class="logo-text">
             Toya
         </div>
-        <hr>
-        <button onclick="switchTab('acupuncture')">针灸穴位</button>
-        <button onclick="switchTab('herb')">中药判断真假</button>
-        <button onclick="switchTab('survival')">求生知识</button>
-        <button onclick="switchTab('trade')">外贸知识</button>
-        <button onclick="switchTab('other')">其他知识</button>
+        <!-- 按钮单独一个阴影框，和Toya分隔开 -->
+        <div class="btn-box">
+            <button onclick="switchTab('acupuncture')">针灸穴位</button>
+            <button onclick="switchTab('herb')">中药判断真假</button>
+            <button onclick="switchTab('survival')">求生知识</button>
+            <button onclick="switchTab('trade')">外贸知识</button>
+            <button onclick="switchTab('other')">其他知识</button>
+        </div>
     </div>
 
     <!-- 右侧内容区域 -->
