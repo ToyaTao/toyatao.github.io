@@ -6,9 +6,9 @@
     <title>Toya的知识汇总手册</title>
     <style>
         :root{
-            --a:17px;
-            --b:16px;
-            --c:16px;
+            --a:16px;
+            --b:17px;
+            --c:15px;
         }
         * {
             margin: 0;
@@ -30,7 +30,7 @@
             flex-direction:column;
             gap:20px;
         }
-        /* Toya艺术字：无背景、独立区域，不与按钮同框 */
+        /* Toya艺术字 */
         .logo-text{
             text-align:center;
             font-size:26px;
@@ -40,7 +40,7 @@
             color:#222222;
             text-shadow: 0.5px 0.5px 2px #cccccc;
         }
-        /* 按钮单独阴影框 */
+        /* 按钮区域 */
         .btn-box{
             background: #f3f3f3;
             padding:22px;
@@ -55,7 +55,7 @@
             background:#2468c7;
             color:#fff;
             border-radius:6px;
-            font-size:var(--c);
+            font-size:var(--a);
             cursor:pointer;
         }
         .btn-box button:hover{
@@ -66,9 +66,16 @@
             background:#f8f8f8;
             padding:30px;
             border-radius:10px;
-            font-size:var(--a);
             line-height:1.8;
             box-shadow: 2px 2px 8px #e2e2e2;
+        }
+        /* 标题文字：白芷、当归 */
+        .text-main{
+            font-size: var(--b);
+        }
+        /* 小字说明：正品、假 */
+        .text-sub{
+            font-size: var(--c);
         }
         .content-item{
             display:none;
@@ -81,11 +88,9 @@
 <body>
     <!-- 左侧 -->
     <div class="left-wrap">
-        <!-- Toya艺术字 独立，无背景，独立区块 -->
         <div class="logo-text">
             Toya
         </div>
-        <!-- 按钮单独一个阴影框，和Toya分隔开 -->
         <div class="btn-box">
             <button onclick="switchTab('acupuncture')">针灸穴位</button>
             <button onclick="switchTab('herb')">中药判断真假</button>
@@ -101,12 +106,12 @@
             曲池，手三里。
         </div>
         <div class="content-item" id="herb">
-            <strong style="font-size:var(--a);">白芷：</strong><br>
-            <data style="font-size:var(--b);">正品：切面外圈有很多棕色的油点。</data><br>
-            <data style="font-size:var(--b);">假：颜色惨白，一摸掉粉。</data><br><br>
-            <strong style="font-size:var(--a);">当归：</strong><br>
-            <data style="font-size:var(--b);">正品：切面油性足。</data><br>
-            <data style="font-size:var(--b);">假：呈长条状。</data>
+            <strong class="text-main">白芷：</strong><br>
+            <data class="text-sub">正品：切面外圈有很多棕色的油点。</data><br>
+            <data class="text-sub">假：颜色惨白，一摸掉粉。</data><br><br>
+            <strong class="text-main">当归：</strong><br>
+            <data class="text-sub">正品：切面油性足。</data><br>
+            <data class="text-sub">假：呈长条状。</data>
         </div>
         <div class="content-item" id="survival">
             1。
