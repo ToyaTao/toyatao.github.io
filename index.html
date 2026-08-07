@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toya的知识汇总手册</title>
+    <title>Toya的知识手册</title>
     <style>
         :root{
             --a:16px;/* 左边文字字号 */
@@ -27,7 +27,22 @@
             grid-template-columns: 260px 1fr;
             gap: 35px;
         }
-        /* 左侧整体容器 */
+        /* 新增：sticky外层盒子，grid直接子元素，负责粘性吸附 */
+        .left-sticky-outer{
+            position: sticky;
+            top:20px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+        /* 隐藏左侧滚动条（可选） */
+        .left-sticky-outer::-webkit-scrollbar {
+            display: none;
+        }
+        .left-sticky-outer {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        /* 左侧内部容器，只做弹性布局，不带sticky */
         .left-wrap{
             display:flex;
             flex-direction:column;
@@ -120,6 +135,7 @@
             <button onclick="switchTab('survival')">求生知识</button>
             <button onclick="switchTab('trade')">外贸知识</button>
             <button onclick="switchTab('other')">其他知识</button>
+            <button onclick="switchTab('sun')">Sun</button>
         </div>
     </div>
 
@@ -160,6 +176,10 @@
             <data class="text-sub">选PP5，安全使用温度范围-20℃至120℃‌，能装热水、冰水。</data><br><br>
             <strong class="text-main">滑板：</strong>
             <data class="text-sub">选专业板，不选百元内的玩具板；Weyoung瑕疵长板263元。<br>长板，稳，刷街用；陆冲，转向灵活，不用蹬地；双翘，练技巧用。轮子种类，刷街轮最软，全能轮适中，动作轮最硬。<br>品牌，Weyoung，WSK，xdy，locus，DBH，喵板，逆山。</data><br><br>
+        </div>
+        <div class="content-item" id="sun">
+            <strong class="text-main">1：</strong>
+            <data class="text-sub">。</data><br><br>
         </div>
     </div>
 
