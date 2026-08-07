@@ -95,16 +95,15 @@
 <body>
     <!-- 左侧 -->
 <style>
-.left-sticky-outer{
-    position: sticky;
-    top: 20px;
-    max-height: calc(100vh - 40px);
-    overflow-y: auto;
-}
 .left-wrap{
     display:flex;
     flex-direction:column;
     gap:20px;
+    /* 实现局部粘滞滚动 */
+    position: sticky;
+    top:20px;      /* 距离页面顶部20px开始粘附 */
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;  /* 内部内容超出就出现滚动条 */
 }
 </style>
     <div class="left-wrap">
