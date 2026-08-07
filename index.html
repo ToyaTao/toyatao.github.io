@@ -9,6 +9,7 @@
             --a:16px;/* 左边文字字号 */
             --b:17px;/* 右边标题文字字号 */
             --c:15px;/* 右边文字字号 */
+            --d:19px;/* 右边大标题文字字号 */
             --h:320px;/* 图片最大宽度 */
             --i:8px;/* 图片上方间距 */
         }
@@ -85,6 +86,10 @@
         .content-item.active{
             display:block;
         }
+        /* 大标题文字 */
+        .text-bigmain{
+            font-size: var(--d);
+        }
     </style>
 </head>
 <body>
@@ -105,31 +110,40 @@
     <!-- 右侧内容区域 -->
     <div class="right-content">
         <div class="content-item active" id="acupuncture">
+            <strong class="text-bigmain">针灸处方：</strong><br><br>
+            <strong class="text-main">晕车：</strong>
+            <data class="text-sub">内关，中脘。</data><br><br>
+            <strong class="text-bigmain">穴位：</strong><br><br>
             <strong class="text-main">曲池：</strong>
-            <data class="text-sub">直刺1寸；循行向上。</data><br><br>
-            <strong class="text-main">手三里：</strong><br>
-            <data class="text-sub">直刺1寸；循行向上。</data><br><br>
+            <data class="text-sub">位置尺泽与肱骨外上髁连线中点凹陷处，一说肘横纹末端与桡骨小头之间的凹陷处；直刺1寸；循行向上。</data><br><br>
+            <strong class="text-main">手三里：</strong>
+            <data class="text-sub">位置肘横纹下2寸、阳溪与曲池连线上；直刺1寸；循行向上。</data><br><br>
         </div>
         <div class="content-item" id="herb">
+            <strong class="text-bigmain">中药方剂：</strong><br><br>
+            <strong class="text-main">桂枝汤：</strong>
+            <data class="text-sub">防感冒，增强体质。配方：桂枝9g、芍药9g、生姜9g、炙甘草6g、大枣3-12枚。</data><br><br>
+            <strong class="text-bigmain">中草药辨别真假：</strong><br><br>
             <strong class="text-main">白芷：</strong><br>
-            <data class="text-sub">正品：切面外圈有很多棕色的油点。</data><br>
-            <data class="text-sub">假：颜色惨白，一摸掉粉。</data><br>
-            <img src="images/baizhi.jpg" alt="白芷图片" style="max-width:var(--h);margin-top:var(--i);"><br><br>
+            <data class="text-sub">正品：切面外圈有很多棕色的油点。<br>假：颜色惨白，一摸掉粉。</data><br>
+            <img src="images/baizhizhenjia.jpg" alt="白芷真假图片" style="max-width:var(--h);margin-top:var(--i);"><br><br>
             <strong class="text-main">当归：</strong><br>
-            <data class="text-sub">正品：切面油性足。</data><br>
-            <data class="text-sub">假：呈长条状。</data>
+            <data class="text-sub">正品：切面油性足。<br>假：呈长条状。</data><br>
+            <img src="images/dangguizhenjia.jpg" alt="当归真假图片" style="max-width:var(--h);margin-top:var(--i);"><br><br>
         </div>
         <div class="content-item" id="survival">
-            <strong class="text-main">1：</strong><br>
-            <data class="text-sub">。</data><br><br>
+            <strong class="text-main">渡河：</strong>
+            <data class="text-sub">斜向下游45度架设绳索。</data><br><br>
         </div>
         <div class="content-item" id="trade">
-            <strong class="text-main">2：</strong><br>
+            <strong class="text-main">1：</strong>
             <data class="text-sub">。</data><br><br>
         </div>
         <div class="content-item" id="other">
-            <strong class="text-main">3：</strong><br>
-            <data class="text-sub">。</data><br><br>
+            <strong class="text-main">塑料水杯：</strong>
+            <data class="text-sub">选PP5，安全使用温度范围-20℃至120℃‌，能装热水、冰水。</data><br><br>
+            <strong class="text-main">滑板：</strong>
+            <data class="text-sub">选专业板，不选百元内的玩具板；Weyoung瑕疵长板263元。<br>长板，稳，刷街用；陆冲，转向灵活，不用蹬地；双翘，练技巧用。轮子种类，刷街轮最软，全能轮适中，动作轮最硬。<br>品牌，Weyoung，WSK，xdy，locus，DBH，喵板，逆山。</data><br><br>
         </div>
     </div>
 
