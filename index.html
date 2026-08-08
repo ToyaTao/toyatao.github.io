@@ -26,21 +26,32 @@
             display: grid;
             grid-template-columns: 260px 1fr;
             gap: 35px;
-            align-items: start; /* grid关键修复，禁止拉伸，sticky正常工作 */
+            align-items: start;
         }
-        /* 左侧外层，不再设置overflow、max‑height */
-        .left-sticky-outer{
-        }
-        /* 左侧吸顶盒子：Toya标题+邮箱+按钮整体粘在top20px */
+
+        /* 整体吸顶容器，固定在屏幕top20px */
         .sidebar-fixed{
             position: sticky;
             top:20px;
+            max-height: calc(100vh - 40px);
+            display: flex;
+            flex-direction: column;
         }
-        .left-wrap{
-            display:flex;
-            flex-direction:column;
-            gap:20px;
+        /* 可滚动区域：只滚动按钮部分，标题邮箱固定不动 */
+        .scroll-btn-area{
+            flex:1;
+            overflow-y:auto;
+            padding-right:4px;
         }
+        /* 隐藏滚动条（webkit浏览器） */
+        .scroll-btn-area::-webkit-scrollbar {
+            width: 4px;
+        }
+        .scroll-btn-area::-webkit-scrollbar-thumb {
+            background:#bbbbbb;
+            border-radius:2px;
+        }
+
         /* Toya艺术字 */
         .logo-text{
             text-align:center;
@@ -50,6 +61,12 @@
             letter-spacing:4px;
             color:#222222;
             text-shadow: 0.5px 0.5px 2px #cccccc;
+            margin-bottom:15px;
+        }
+        .contact-info{
+            font-size:12px;
+            text-align:center;
+            margin-bottom:15px;
         }
         /* 按钮区域 */
         .btn-box{
@@ -74,12 +91,21 @@
         }
         /* 右侧内容区域 */
         .right-content{
-            width:1140px; /*强制固定宽度*/
+            width:1140px;
             background:#f8f8f8;
             padding:30px;
             border-radius:10px;
             line-height:1.8;
             box-shadow: 2px 2px 8px #e2e2e2;
+        }
+        /* 链接样式 */
+        .right-content a{
+            color:#222222;
+            text-decoration:none;
+        }
+        .right-content a:hover{
+            color:#2468c7;
+            text-decoration:underline;
         }
         /* 标题文字 */
         .text-main{
@@ -103,33 +129,25 @@
     </style>
 </head>
 <body>
-    <!-- 左侧 -->
-<style>
-.left-wrap{
-    display:flex;
-    flex-direction:column;
-    gap:20px;
-    /* 实现局部粘滞滚动 */
-    position: sticky;
-    top:20px;      /* 距离页面顶部20px开始粘附 */
-    max-height: calc(100vh - 40px);
-    overflow-y: auto;  /* 内部内容超出就出现滚动条 */
-}
-</style>
-    <div class="left-wrap">
+    <!-- 左侧：整体吸顶，标题邮箱固定，按钮区内部滚动 -->
+    <div class="sidebar-fixed">
         <div class="logo-text">
             Toya
         </div>
-        <div class="contact-info" style="font-size:12px;margin-bottom:15px;">
+        <div class="contact-info">
             联系方式：邮箱：1509488670@qq.com
         </div>
-        <div class="btn-box">
-            <button onclick="switchTab('acupuncture')">针灸穴位</button>
-            <button onclick="switchTab('herb')">中药方剂</button>
-            <button onclick="switchTab('survival')">求生知识</button>
-            <button onclick="switchTab('trade')">外贸知识</button>
-            <button onclick="switchTab('other')">其他知识</button>
-            <button onclick="switchTab('sun')">Sun</button>
+        <!--只有按钮盒子会滚动，标题邮箱保持在顶部不动-->
+        <div class="scroll-btn-area">
+            <div class="btn-box">
+                <button onclick="switchTab('acupuncture')">针灸穴位</button>
+                <button onclick="switchTab('herb')">中药方剂</button>
+                <button onclick="switchTab('survival')">求生知识</button>
+                <button onclick="switchTab('trade')">外贸知识</button>
+                <button onclick="switchTab('other')">其他知识</button>
+                <button onclick="switchTab('sun')">Sun</button>
+                <!--以后新增按钮直接写在这里，多了就内部滚动，标题不会跑掉-->
+            </div>
         </div>
     </div>
 
