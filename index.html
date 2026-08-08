@@ -26,23 +26,16 @@
             display: grid;
             grid-template-columns: 260px 1fr;
             gap: 35px;
+            align-items: start; /* grid关键修复，禁止拉伸，sticky正常工作 */
         }
-        /* 新增：sticky外层盒子，grid直接子元素，负责粘性吸附 */
+        /* 左侧外层，不再设置overflow、max‑height */
         .left-sticky-outer{
+        }
+        /* 左侧吸顶盒子：Toya标题+邮箱+按钮整体粘在top20px */
+        .sidebar-fixed{
             position: sticky;
             top:20px;
-            max-height: calc(100vh - 40px);
-            overflow-y: auto;
         }
-        /* 隐藏左侧滚动条（可选） */
-        .left-sticky-outer::-webkit-scrollbar {
-            display: none;
-        }
-        .left-sticky-outer {
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-        /* 左侧内部容器，只做弹性布局，不带sticky */
         .left-wrap{
             display:flex;
             flex-direction:column;
