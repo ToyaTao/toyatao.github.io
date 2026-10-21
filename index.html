@@ -132,6 +132,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- 左侧：整体吸顶，标题邮箱固定，按钮区内部滚动 -->
     <div class="sidebar-fixed">
@@ -139,7 +140,7 @@
             Toya
         </div>
         <div class="contact-info">
-            联系方式：邮箱1509488670@qq.com
+            联系方式：<a href="mailto:1509488670@qq.com">1509488670@qq.com</a>
         </div>
         <!--只有按钮盒子会滚动，标题邮箱保持在顶部不动-->
         <div class="scroll-btn-area">
@@ -189,7 +190,7 @@
         </div>
         <!-- 外贸知识 -->
         <div class="content-item" id="trade">
-            <strong class="text-main">1：</strong>
+            <strong class="text-main">1外贸：</strong>
             <data class="text-sub">。</data><br><br>
         </div>
         <!-- 其他知识 -->
@@ -229,5 +230,45 @@ function switchTab(id){
     document.getElementById(id).classList.add('active');
 }
 </script>
+
+<script>
+// 禁用右键菜单
+document.oncontextmenu = function() {
+    return false;
+}
+// 监听键盘按键
+document.onkeydown = function(e) {
+    e = e || window.event;
+    // F12
+    if (e.keyCode === 123) {
+        return false;
+    }
+    // Ctrl + U
+    if (e.ctrlKey && e.keyCode === 85) {
+        return false;
+    }
+    // Ctrl + Shift + I
+    if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+        return false;
+    }
+    // Ctrl + Shift + J
+    if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
+        return false;
+    }
+}
+</script>
+<script>
+let devOpen = false;
+const threshold = 160;
+const checkDev = function() {
+    const widthThreshold = window.outerWidth - window.innerWidth > threshold;
+    const heightThreshold = window.outerHeight - window.innerHeight > threshold;
+    if(widthThreshold || heightThreshold) {
+        document.body.innerHTML = "<h2>禁止打开开发者工具</h2>";
+    }
+};
+setInterval(checkDev, 1000);
+</script>
+
 </body>
 </html>
