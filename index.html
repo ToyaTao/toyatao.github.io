@@ -146,6 +146,7 @@
         body {
             grid-template-columns: 260px 1fr !important;
         }
+        
         @media (max-width:768px) {
             body {
                 grid-template-columns: 1fr !important;
@@ -162,13 +163,14 @@
             }
             .btn-box {
                 display: flex;
+                flex-direction: row;
                 flex-wrap: wrap;
                 gap: 10px;
                 padding: 14px;
             }
             .btn-box button {
                 margin: 0;
-                flex: 1 0 auto;
+                flex: 0 0 150px;
                 white-space: nowrap;
             }
         }
