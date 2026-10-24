@@ -141,6 +141,33 @@
         body {
             grid-template-columns: 260px 1fr !important;
         }
+        @media (max-width:768px) {
+            body {
+                grid-template-columns: 1fr !important;
+                margin-top: 20px;
+            }
+            .sidebar-fixed {
+                position: static;
+                top: auto;
+                max-height: unset;
+            }
+            .scroll-btn-area {
+                overflow-y: unset;
+                overflow-x: unset;
+            }
+            .btn-box {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                padding: 14px;
+            }
+            .btn-box button {
+                width: auto;
+                margin: 0;
+                flex-shrink: 1;
+                white-space: nowrap;
+            }
+        }
     </style>
 </head>
 
