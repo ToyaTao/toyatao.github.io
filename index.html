@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1140, maximum-scale=5.0, minimum-scale=0.1, user-scalable=yes">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Toya的知识手册</title>
     <style>
         :root{
@@ -85,9 +85,14 @@
             border-radius:6px;
             font-size:var(--a);
             cursor:pointer;
+            -webkit-appearance: none;
+            appearance: none;
         }
         .btn-box button:hover{
             background:#194b94;
+        }
+        .btn-box button.active{
+            background:#10356b;
         }
         /* 右侧内容区域 */
         .right-content{
@@ -132,6 +137,9 @@
         .text-smallsub{
             font-size: var(--c);
         }
+        body {
+            grid-template-columns: 260px 1fr !important;
+        }
     </style>
 </head>
 
@@ -147,13 +155,13 @@
         <!--只有按钮盒子会滚动，标题邮箱保持在顶部不动-->
         <div class="scroll-btn-area">
             <div class="btn-box">
-                <button onclick="switchTab('acupuncture')">针灸穴位</button>
-                <button onclick="switchTab('herb')">中药方剂</button>
-                <button onclick="switchTab('survival')">求生知识</button>
-                <!--<button onclick="switchTab('trade')">外贸知识</button>-->
-                <button onclick="switchTab('other')">其他知识</button>
-                <button onclick="switchTab('sun')">Sun</button>
-                <button onclick="switchTab('news')">新闻资讯</button>
+                <button onclick="switchTab('acupuncture', this)" class="active">针灸穴位</button>
+                <button onclick="switchTab('herb', this)">中药方剂</button>
+                <button onclick="switchTab('survival', this)">求生知识</button>
+                <!--<button onclick="switchTab('trade', this)">外贸知识</button>-->
+                <button onclick="switchTab('other', this)">其他知识</button>
+                <button onclick="switchTab('sun', this)">Sun</button>
+                <button onclick="switchTab('news', this)">新闻资讯</button>
                 <!--以后新增按钮直接写在这里，多了就内部滚动，标题不会跑掉-->
             </div>
         </div>
@@ -225,11 +233,15 @@
     </div>
 
 <script>
-function switchTab(id){
+function switchTab(id, btn) {
     document.querySelectorAll('.content-item').forEach(box=>{
         box.classList.remove('active');
     })
     document.getElementById(id).classList.add('active');
+    document.querySelectorAll('.btn-box button').forEach(b=>{
+        b.classList.remove('active');
+    })
+    btn.classList.add('active');
 }
 </script>
 
